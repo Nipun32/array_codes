@@ -1,0 +1,19 @@
+long long minDist(long long arr[], long long n, long long x, long long y)
+{  
+    long int i,prev=-1,min=99;
+   for(i=0;i<n;i++){
+       if(arr[i]==x||arr[i]==y){
+          prev=i; 
+          break;
+       }
+   }
+   i++;
+     for(;i<n;i++){
+         if(arr[i]==x||arr[i]==y){
+         if(arr[i]!=arr[prev]&& min>i-prev){
+           min=i-prev;
+           prev=i;
+         }
+           else prev=i;
+     }
+     }
