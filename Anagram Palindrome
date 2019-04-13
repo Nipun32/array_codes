@@ -1,0 +1,44 @@
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+int str_len(char str[]){
+    int i=0;
+    for(;str[i]!='\0';i++);
+    return i;
+}
+int main()
+ {
+     int test;cin>>test;cin.get();
+	//code
+	while(test){
+	    char str[1000];
+	    cin.getline(str,1000);
+	    unordered_map<char,int> umap;
+	    bool flag=true;
+	    for(int i=0;str[i]!='\0';i++){
+	        umap[str[i]]++;
+	    }
+	    int cnt=0;
+	    int len=str_len(str);
+	    if(len%2==0){
+	    for(auto x:umap){
+	        if(x.second%2!=0){
+	            flag=false;
+	      break;
+	        }
+	    }}
+	    else{
+	        for(auto x:umap){
+	            if(x.second%2!=0 && cnt==0)cnt++;
+	            else if(x.second%2!=0 && cnt!=0){
+	                flag=false;
+	                break;
+	            }
+	        }
+	    }
+	    if(flag)cout<<"Yes"<<endl;
+	    else cout<<"No"<<endl;
+	    test--;
+	}
+	return 0;
+}
