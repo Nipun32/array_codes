@@ -1,0 +1,33 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int test;cin>>test;
+	while(test){
+	    int decimal,loc,iter,i;
+	    cin>>decimal;
+	    cin>>loc>>iter;
+	    string str,result;
+	    while(decimal>0){
+	        str+=decimal%2+'0';
+	        decimal/=2;
+	    }
+	   reverse(str.begin(),str.end());
+	    //cout<<str<<endl;
+	    for(int l=0;l<iter;l++){
+	        for(i=0;i<str.length();i++){
+	            if(str[i]=='0')result+="01";
+	           else result+="10";
+	        }
+	        str=result;
+	        result="";
+	       // cout<<str<<endl;
+	    }
+	    //cout<<result<<endl;
+	    cout<<str[loc]-'0'<<endl;
+	    test--;
+	}
+	return 0;
+}
